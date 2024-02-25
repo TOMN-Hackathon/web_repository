@@ -1,0 +1,3 @@
+[submodule "storefront/playground/static/assets"]
+	path = storefront/playground/static/assets
+	url = https://github.com/TOMN-Hackathon/Art-Assets

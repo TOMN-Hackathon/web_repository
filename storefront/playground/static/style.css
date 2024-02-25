@@ -1,14 +1,18 @@
 :root {
     color-scheme: dark light;
     font-family: "Kalam", system-ui;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
+    box-sizing: border-box;
+
     --background: canvas;
     --text: canvastext;
 }
 
 body {
-    background-color: var(--background);
-    color: var(--text);
+    background-image: url("/static/assets/Background.svg");
+    backg color: var(--text);
+    background-position: center;
+    background-size: cover;
     min-height: 100dvh;
     margin: 0;
     display: grid;
@@ -30,18 +34,58 @@ input {
     color: var(--background);
     font-size: 1rem;
     font-family: "Kalam", system-ui;
+
+    &:focus {
+        outline: none;
+    }
 }
 
 #user-message {
     position: absolute;
+    background-image: url("/static/assets/User Textbox.svg");
+    width: 1020px;
+    height: 250px;
     z-index: 2;
     left: 1rem;
-    bottom: 33%;
+    bottom: 4rem;
 }
 
 #ai-message {
     position: absolute;
     z-index: 2;
     right: 1rem;
-    bottom: 66%;
+    bottom: calc(5rem + 250px);
+    background-image: url("/static/assets/AI Textbox.svg");
+    width: 1007px;
+    height: 250px;
+}
+
+.user-message p {
+    width: calc(100% - 168px);
+    height: calc(100% - 56px);
+    margin: 0;
+    padding: 1rem;
+}
+
+.ai-message p {
+    width: calc(100% - 168px);
+    height: calc(100% - 56px);
+    margin: 0;
+    padding: 1rem;
+    padding-left: 140px;
+    overflow: auto;
+}
+
+#user-message,
+#ai-message {
+    p {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.5s;
+    }
+
+    &.htmx-settling p {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
 }
