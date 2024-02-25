@@ -15,10 +15,7 @@ def add_to_json(user, message):
     with open('storefront/playground/templates/message.json', encoding='utf-8') as data_file:
         data = json.loads(data_file.read())
     data_file.close()
-    print(data)
-    print(type(data))
-    data.append({"role":user, "message" :message})
-    print(data)
+    data.append({"role":user, "content" :message})
     with open('storefront/playground/templates/message.json', 'w') as data_file:
         json.dump(data, data_file)
     data_file.close()
@@ -47,6 +44,7 @@ def ai(request):
     messages=history
     )
 
-    print(completion.choices[0].message)
-
-    return HttpResponse("<span class='ai-message'><p>AI MESSAGE</p></span>", content_type="text/html")
+    #print(completion.choices[0].message)
+    print(completion.choices[0].message.content)
+    add_to_json("assistant", completion.choices[0].message.content)
+    return HttpResponse(f"<span class='ai-message'><p>{completion.choices[0].message.content}</p></span>", content_type="text/html")
