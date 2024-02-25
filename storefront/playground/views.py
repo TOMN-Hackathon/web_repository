@@ -40,7 +40,12 @@ def ai(request):
     data_file.close()
     completion = client.chat.completions.create(
     model="gpt-3.5-turbo",
-    messages=history
+    messages=history,
+    temperature=1.27,
+    max_tokens=256,
+    top_p=1,
+    frequency_penalty=0.5,
+    presence_penalty=0.2
     )
 
     reply = completion.choices[0].message.content
