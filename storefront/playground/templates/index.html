@@ -6,6 +6,7 @@
         <title>NOM Project</title>
         <script src="https://unpkg.com/htmx.org@1.9.10"></script>
         <link rel="stylesheet" href="/static/style.css" />
+        <script src="/static/script.js" defer></script>
     </head>
 
     <body>
@@ -14,6 +15,7 @@
             <div id="ai-message"></div>
             <div id="user-message"></div>
             <input
+                id="input"
                 name="userMessage"
                 hx-get="/user"
                 hx-target="#user-message"
