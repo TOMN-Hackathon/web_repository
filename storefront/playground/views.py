@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import json
+from openai import OpenAI
+import os
+
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 # Create your views here.
 def landing(request):
@@ -35,4 +39,13 @@ def messages(request):
 
 
 def ai(request):
-    pass
+    with open('storefront/playground/templates/message.json', encoding='utf-8') as data_file:
+        history = json.loads(data_file.read())
+    data_file.close()
+    completion = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=history
+    )
+
+    print(completion.choices[0].message)
+
