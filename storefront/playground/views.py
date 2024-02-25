@@ -28,7 +28,7 @@ def add_to_json(user, message):
 def user(request):
     userMessage = request.GET.get("userMessage", "")
     add_to_json("user", userMessage)
-    return HttpResponse(f"<span class='user-message'><p>{userMessage}</p></span>", content_type="text/html")
+    return HttpResponse(f"<span class='user-message' hx-get='/ai' hx-target='#ai-message' hx-trigger='load'><p>{userMessage}</p></span>", content_type="text/html")
 
 def messages(request):
     with open('storefront/playground/templates/message.json', encoding='utf-8') as data_file:
@@ -49,3 +49,4 @@ def ai(request):
 
     print(completion.choices[0].message)
 
+    return HttpResponse("<span class='ai-message'><p>AI MESSAGE</p></span>", content_type="text/html")
