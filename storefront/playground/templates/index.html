@@ -9,12 +9,17 @@
     </head>
 
     <body>
-        <div id="log"></div>
-        <input
-            name="userMessage"
-            hx-get="/user"
-            hx-target="#log"
-            hx-swap="beforeend"
-        />
+        <header></header>
+        <main>
+            <div id="ai-message"></div>
+            <div id="user-message"></div>
+            <input
+                name="userMessage"
+                hx-get="/user"
+                hx-target="#user-message"
+                hx-swap="beforeend"
+                placeholder="Message"
+            />
+        </main>
     </body>
 </html>

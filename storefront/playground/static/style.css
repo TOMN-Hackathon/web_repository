@@ -1,1 +1,30 @@
-:root{background-color: black;}
+:root {
+    color-scheme: dark light;
+    --background: canvas;
+    --text: canvastext;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    min-height: 100dvh;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+main {
+    display: flex;
+}
+
+input {
+    align-self: end;
+    background-color: var(--text);
+    border-radius: 1rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    width: 100%;
+    border: none;
+    color: var(--background);
+    font-size: 1.25rem;
+}
