@@ -89,3 +89,11 @@ input {
         transform: translateY(1rem);
     }
 }
+
+.parrot {
+    position: absolute;
+    z-index: 2;
+    bottom: calc(5rem + 250px);
+    left: 6rem;
+    height: 250px;
+}
