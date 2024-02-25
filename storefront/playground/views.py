@@ -3,11 +3,11 @@ from django.http import HttpResponse
 
 # Create your views here.
 def landing(request):
-    messages_dict = file.open()
-    return HttpResponse("<p>Hello World</p>",content_type="text/html")
+    #messages_dict = file.open()
+    return render(request, "index.html")
 
 def user(request):
-    pass
+    print(request)
 
 def messages(request):
     pass 
