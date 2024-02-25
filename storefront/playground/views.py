@@ -8,7 +8,6 @@ client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 # Create your views here.
 def landing(request):
-    #messages_dict = file.open()
     return render(request, "index.html")
 
 def add_to_json(user, message):
@@ -44,7 +43,6 @@ def ai(request):
     messages=history
     )
 
-    #print(completion.choices[0].message)
-    print(completion.choices[0].message.content)
-    add_to_json("assistant", completion.choices[0].message.content)
-    return HttpResponse(f"<span class='ai-message'><p>{completion.choices[0].message.content}</p></span>", content_type="text/html")
+    reply = completion.choices[0].message.content
+    add_to_json("assistant", reply)
+    return HttpResponse(f"<span class='ai-message'><p>{reply}</p></span>", content_type="text/html")
