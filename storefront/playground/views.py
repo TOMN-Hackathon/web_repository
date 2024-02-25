@@ -7,10 +7,11 @@ def landing(request):
     return render(request, "index.html")
 
 def user(request):
-    print(request)
+	userMessage= request.GET.get("userMessage", "")
+	return HttpResponse(f"<span class='user-message'><p>{userMessage}</p></span>", content_type="text/html")
 
 def messages(request):
-    pass 
+    pass
 
 def ai(request):
     pass

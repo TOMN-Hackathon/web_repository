@@ -9,6 +9,11 @@
 
     <body>
         <div id="log"></div>
-        <input hx-post="/user" hx-target="#log" hx-swap="beforeend" />
+        <input
+            name="userMessage"
+            hx-get="/user"
+            hx-target="#log"
+            hx-swap="beforeend"
+        />
     </body>
 </html>
