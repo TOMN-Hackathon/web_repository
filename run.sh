@@ -1,2 +1,0 @@
-export OPENAI_API_KEY=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
-python storefront/manage.py runserver
